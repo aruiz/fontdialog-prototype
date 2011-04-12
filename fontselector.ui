@@ -1,17 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0"?>
 <interface>
   <requires lib="gtk+" version="2.16"/>
   <!-- interface-naming-policy toplevel-contextual -->
   <object class="GtkDialog" id="fontdialog">
+    <property name="width_request">450</property>
+    <property name="height_request">500</property>
     <property name="border_width">5</property>
     <property name="type_hint">normal</property>
     <child internal-child="vbox">
       <object class="GtkVBox" id="dialog-vbox2">
         <property name="visible">True</property>
+        <property name="orientation">vertical</property>
         <property name="spacing">2</property>
         <child>
           <object class="GtkVBox" id="vbox1">
             <property name="visible">True</property>
+            <property name="orientation">vertical</property>
             <property name="spacing">5</property>
             <child>
               <object class="GtkHBox" id="hbox1">
@@ -68,20 +72,18 @@
               </packing>
             </child>
             <child>
-              <object class="GtkVBox" id="vbox2">
+              <object class="GtkAlignment" id="alignment1">
                 <property name="visible">True</property>
+                <property name="top_padding">7</property>
                 <child>
                   <object class="GtkEntry" id="preview">
                     <property name="height_request">70</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="invisible_char">•</property>
+                    <property name="invisible_char">&#x25CF;</property>
                     <property name="text" translatable="yes">Type your sample text here</property>
                     <property name="caps_lock_warning">False</property>
                   </object>
-                  <packing>
-                    <property name="position">0</property>
-                  </packing>
                 </child>
               </object>
               <packing>
@@ -146,7 +148,7 @@
                   <object class="GtkSpinButton" id="fontsize">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="invisible_char">●</property>
+                    <property name="invisible_char">&#x25CF;</property>
                     <property name="digits">1</property>
                     <property name="numeric">True</property>
                     <property name="wrap">True</property>
@@ -172,12 +174,12 @@
             <property name="visible">True</property>
             <property name="layout_style">end</property>
             <child>
-              <object class="GtkButton" id="button1">
+              <object class="GtkButton" id="cancel">
                 <property name="label">gtk-cancel</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="relief">none</property>
+                <property name="relief">half</property>
                 <property name="use_stock">True</property>
               </object>
               <packing>
@@ -187,12 +189,11 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="button3">
-                <property name="label">gtk-ok</property>
+              <object class="GtkButton" id="select">
+                <property name="label">Select</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="use_stock">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -210,8 +211,8 @@
       </object>
     </child>
     <action-widgets>
-      <action-widget response="0">button1</action-widget>
-      <action-widget response="0">button3</action-widget>
+      <action-widget response="0">cancel</action-widget>
+      <action-widget response="0">select</action-widget>
     </action-widgets>
   </object>
 </interface>

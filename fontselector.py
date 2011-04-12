@@ -84,13 +84,9 @@ class widgets(object):
 			self.sizes = SIZES
 
 		self.font_size_scale.clear_marks ()
-		
-		i = 1
-		positions = [gtk.POS_BOTTOM, gtk.POS_TOP]
+
 		for size in self.sizes:
-			pos = positions[i % 2]
-			self.font_size_scale.add_mark (float (size), pos, None)
-			i += 1
+			self.font_size_scale.add_mark (float (size), gtk.POS_BOTTOM, None)
 		
 	def set_size (self, size):
 		size = size * pango.SCALE
