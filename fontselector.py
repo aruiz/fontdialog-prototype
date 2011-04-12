@@ -233,9 +233,8 @@ def main():
 	families = list(pc.list_families())
 	families.sort (compare_family_names)
 	for family in families:
-		preview = "<span foreground=\"darkgrey\" font_family=\"%s\">Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm</span>" % \
-		          (family.get_name (),)
-		name = "<b>%s</b>" % (family.get_name (),)
+		name = "<span foreground=\"darkgrey\">%s</span>" % (family.get_name (),)
+		preview = "<span font_family=\"%s\">Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm</span>" % (family.get_name (),)
 		
 		fonts.append([family, family.get_name (), name, preview])
 	
