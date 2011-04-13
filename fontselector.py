@@ -131,6 +131,15 @@ class widgets(object):
 			if family == row[1]:
 				self.font_list_view.set_cursor (row.path, None, False)
 				break
+		
+		self.set_initial_font (model)
+
+	def set_initial_font (self, model):
+		iter_first = model.get_iter_first ()
+		path_first = model.get_path (iter_first)
+		self.font_list_view.set_cursor (path_first)
+		
+		
 
 #Filter function
 def font_visible_func (model, treeiter, ui):
