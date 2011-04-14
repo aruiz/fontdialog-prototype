@@ -29,7 +29,7 @@ class widgets(object):
 		self.font_size = interface.get_object ("fontsize")
 		self.font_size_scale = interface.get_object ("sizescale")
 		self.font_weight = interface.get_object ("fontweight")
-		self.font_face = interface.get_object ("fontface")
+#		self.font_face = interface.get_object ("fontface")
 		self.font_search = interface.get_object ("fontsearch")
 		
 		self.font_preview.add_events (gtk.gdk.SCROLL_MASK)
@@ -39,7 +39,7 @@ class widgets(object):
 		self.font_size.connect ("value-changed", size_changed_cb, self)
 		self.font_size_scale.connect ("value-changed", size_changed_cb, self)
 		#self.font_size_scale.connect ("value-changed", scale_tooltip_cb, self)
-		self.font_face.connect ("changed", face_changed_cb, self)
+#		self.font_face.connect ("changed", face_changed_cb, self)
 		
 		text_buffer = self.font_search.get_buffer()
 		text_buffer.connect ("inserted-text", inserted_text_cb, self)
