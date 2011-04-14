@@ -170,9 +170,8 @@ def family_changed_cb (tv, ui):
 #	ui.font_face.set_model (ui.face_list)
 	
 	size_changed_cb (ui.font_size, ui)
-	face = ui.get_face_for_family (font_family)
-	ui.current_face = face
-	ui.set_face (face)
+	ui.current_face = tv.get_model()[index][4]
+	ui.set_face (ui.current_face)
 	
 #	for row in ui.face_list:
 #		if row[1] == face:
@@ -240,7 +239,7 @@ def compare_family_names (f1, f2):
 def main():
 	ui = widgets ()
 	
-	fonts = gtk.ListStore (pango.FontFamily, str, str, str)
+	fonts = gtk.ListStore (pango.FontFamily, str, str, str, pango.FontFace)
 	pc = ui.font_dialog.get_pango_context ()
 	families = list(pc.list_families())
 	families.sort (compare_family_names)
@@ -252,7 +251,7 @@ def main():
 			preview = "<span size=\"small\" foreground=\"darkgrey\">%s %s</span>\n<span font_family=\"%s\" font_desc=\"%s\">Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm</span>" % \
 			          (family.get_name (), face.get_face_name (), family.get_name(), face.get_face_name ())
 	
-			fonts.append([family, family.get_name (), name, preview])
+			fonts.append([family, family.get_name (), name, preview, face])
 	
 	ui.set_model (fonts)
 	print ui.font_list_view.get_cell_area (fonts[0].path, ui.font_list_view.get_column (0))
