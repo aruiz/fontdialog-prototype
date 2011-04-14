@@ -62,7 +62,7 @@ class widgets(object):
 	def bootstrap_treeview (self):
 		cell = gtk.CellRendererText ()
 		column = gtk.TreeViewColumn ("Font name", cell, markup=2)
-		self.font_list_view.append_column (column)
+#		self.font_list_view.append_column (column)
 		column.set_max_width (200)
 		column.set_resizable (True)
 		
@@ -247,7 +247,7 @@ def main():
 	for family in families:
 		#FIXME: Darkgrey has to be a theme color
 		name = "<span foreground=\"darkgrey\">%s</span>" % (family.get_name (),)
-		preview = "<span font_family=\"%s\">Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm</span>" % (family.get_name (),)
+		preview = "<span size=\"small\" foreground=\"darkgrey\">%s</span>\n<span font_family=\"%s\">Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm</span>" % (family.get_name (),family.get_name())
 		
 		fonts.append([family, family.get_name (), name, preview])
 	
