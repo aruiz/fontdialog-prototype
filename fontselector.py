@@ -63,16 +63,15 @@ class widgets(object):
 		cell = gtk.CellRendererText ()
 		column = gtk.TreeViewColumn ("Font name", cell, markup=2)
 		self.font_list_view.append_column (column)
-
-		cell.set_property  ("ellipsize", pango.ELLIPSIZE_END)
+		column.set_max_width (200)
 		column.set_resizable (True)
-		column.set_min_width (230)
 		
 		cell = gtk.CellRendererText ()
 		column = gtk.TreeViewColumn ("Font family", cell, markup=3)
 		self.font_list_view.append_column (column)
-		
-		cell.set_property("ellipsize", pango.ELLIPSIZE_END)
+		cell.set_property  ("ellipsize", pango.ELLIPSIZE_END)
+				
+		self.font_list_view.set_tooltip_column (0)
 	
 	def set_face (self, face):
 		self.current_face = face
@@ -246,6 +245,7 @@ def main():
 	families = list(pc.list_families())
 	families.sort (compare_family_names)
 	for family in families:
+		#FIXME: Darkgrey has to be a theme color
 		name = "<span foreground=\"darkgrey\">%s</span>" % (family.get_name (),)
 		preview = "<span font_family=\"%s\">Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm</span>" % (family.get_name (),)
 		
