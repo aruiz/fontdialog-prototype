@@ -75,71 +75,50 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkToolbar" id="toolbar1">
+                      <object class="GtkHBox" id="hbox1">
                         <property name="visible">True</property>
                         <child>
-                          <object class="GtkToolItem" id="toolbutton2">
+                          <object class="GtkComboBox" id="fontface">
+                            <property name="width_request">150</property>
                             <property name="visible">True</property>
-                            <property name="related_action">style_change</property>
-                            <property name="is_important">True</property>
+                            <property name="button_sensitivity">on</property>
                             <child>
-                              <object class="GtkComboBox" id="fontface">
-                                <property name="width_request">150</property>
-                                <property name="visible">True</property>
-                                <property name="button_sensitivity">on</property>
-                                <child>
-                                  <object class="GtkCellRendererText" id="cellrenderertext1"/>
-                                  <attributes>
-                                    <attribute name="markup">0</attribute>
-                                  </attributes>
-                                </child>
-                              </object>
+                              <object class="GtkCellRendererText" id="cellrenderertext1"/>
+                              <attributes>
+                                <attribute name="markup">0</attribute>
+                              </attributes>
                             </child>
                           </object>
                           <packing>
-                            <property name="expand">False</property>
-                            <property name="homogeneous">True</property>
+                            <property name="position">0</property>
                           </packing>
                         </child>
                         <child>
-                          <object class="GtkToolItem" id="toolbutton3">
+                          <object class="GtkHScale" id="sizescale">
+                            <property name="width_request">150</property>
                             <property name="visible">True</property>
-                            <child>
-                              <object class="GtkHScale" id="sizescale">
-                                <property name="width_request">150</property>
-                                <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="draw_value">False</property>
-                              </object>
-                            </child>
+                            <property name="can_focus">True</property>
+                            <property name="draw_value">False</property>
                           </object>
                           <packing>
-                            <property name="expand">True</property>
-                            <property name="homogeneous">True</property>
+                            <property name="position">1</property>
                           </packing>
                         </child>
                         <child>
-                          <object class="GtkToolItem" id="toolbutton4">
+                          <object class="GtkSpinButton" id="fontsize">
                             <property name="visible">True</property>
-                            <child>
-                              <object class="GtkSpinButton" id="fontsize">
-                                <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="invisible_char">&#x25CF;</property>
-                                <property name="digits">1</property>
-                                <property name="numeric">True</property>
-                                <property name="wrap">True</property>
-                              </object>
-                            </child>
+                            <property name="can_focus">True</property>
+                            <property name="invisible_char">&#x25CF;</property>
+                            <property name="digits">1</property>
+                            <property name="numeric">True</property>
+                            <property name="wrap">True</property>
                           </object>
                           <packing>
-                            <property name="expand">False</property>
-                            <property name="homogeneous">True</property>
+                            <property name="position">2</property>
                           </packing>
                         </child>
                       </object>
                       <packing>
-                        <property name="expand">False</property>
                         <property name="position">1</property>
                       </packing>
                     </child>

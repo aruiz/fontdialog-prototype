@@ -40,8 +40,11 @@ class widgets(object):
 		self.font_size_scale.connect ("value-changed", size_changed_cb, self)
 		#self.font_size_scale.connect ("value-changed", scale_tooltip_cb, self)
 		self.font_face.connect ("changed", face_changed_cb, self)
-		self.font_search.connect ("key-press-event", key_pressed_cb, self)
-		self.font_search.connect ("backspace", backspace_cb, self)
+		
+		text_buffer = self.font_search.get_buffer()
+		text_buffer.connect ("inserted-text", inserted_text_cb, self)
+		text_buffer.connect ("deleted-text", deleted_text_cb, self)
+		
 		self.font_search.connect ("icon-press", icon_press_cb, self)
 		
 		self.scale_adjustment = gtk.Adjustment (DEFAULT_SIZE, SIZES[0], SIZES[-1], 0.5, 0., 0.)
@@ -206,21 +209,26 @@ def preview_scrolled_cb (widget, event, ui):
 		adj.set_value (adj.get_value () - adj.get_step_increment ())
 		
 def icon_press_cb (font_search, position, event, ui):
-	font_search.set_text ("")
-	key_pressed_cb (font_search, None, ui)
+	font_search.get_buffer().set_text ("", 0)
 
 #Workaround for the lack of gtk.EntryBuffer
-def key_pressed_cb (font_search, event, ui):
-	text = font_search.get_text ()
+def inserted_text_cb (text_buffer, pos, chars, nchars, ui):
+	if text_buffer.get_length () > 0:
+		ui.font_search.set_icon_from_stock(gtk.EntryIconPosition(1), gtk.STOCK_CLEAR)
+	filter_list (ui)
+	
+def deleted_text_cb(text_buffer, position, n_chars, ui):
+	if text_buffer.get_length () == 0:
+		ui.font_search.set_icon_from_stock(gtk.EntryIconPosition(1), gtk.STOCK_FIND)
+	filter_list (ui)
+
+def filter_list (ui):
+	text = ui.font_search.get_text ()
 	if text == ui.last_search:
 		return
 		
 	ui.last_search = text
-	ui.font_filter.refilter ()
-	
-def backspace_cb(font_search, ui):
-	key_pressed_cb(font_search, None, ui)
-	
+	ui.font_filter.refilter ()	
 
 #Family sorting fuction
 def compare_family_names (f1, f2):
