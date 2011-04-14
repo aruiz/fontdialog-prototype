@@ -167,16 +167,16 @@ def family_changed_cb (tv, ui):
 	ui.face_list = gtk.ListStore (str, pango.FontFace)
 	for face in font_family.list_faces ():
 		ui.face_list.append ([face.get_face_name (), face])
-	ui.font_face.set_model (ui.face_list)
+#	ui.font_face.set_model (ui.face_list)
 	
 	size_changed_cb (ui.font_size, ui)
 	face = ui.get_face_for_family (font_family)
 	ui.current_face = face
 	ui.set_face (face)
 	
-	for row in ui.face_list:
-		if row[1] == face:
-			ui.font_face.set_active_iter(row.iter)
+#	for row in ui.face_list:
+#		if row[1] == face:
+#			ui.font_face.set_active_iter(row.iter)
 		
 def size_changed_cb (font_size, ui):
 	size = font_size.get_value ()
