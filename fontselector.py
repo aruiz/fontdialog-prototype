@@ -246,10 +246,13 @@ def main():
 	families.sort (compare_family_names)
 	for family in families:
 		#FIXME: Darkgrey has to be a theme color
-		name = "<span foreground=\"darkgrey\">%s</span>" % (family.get_name (),)
-		preview = "<span size=\"small\" foreground=\"darkgrey\">%s</span>\n<span font_family=\"%s\">Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm</span>" % (family.get_name (),family.get_name())
-		
-		fonts.append([family, family.get_name (), name, preview])
+		for face in family.list_faces ():
+			print face.get_face_name ()
+			name = ""
+			preview = "<span size=\"small\" foreground=\"darkgrey\">%s %s</span>\n<span font_family=\"%s\" font_desc=\"%s\">Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm</span>" % \
+			          (family.get_name (), face.get_face_name (), family.get_name(), face.get_face_name ())
+	
+			fonts.append([family, family.get_name (), name, preview])
 	
 	ui.set_model (fonts)
 	print ui.font_list_view.get_cell_area (fonts[0].path, ui.font_list_view.get_column (0))

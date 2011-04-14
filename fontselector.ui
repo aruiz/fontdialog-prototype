@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <requires lib="gtk+" version="2.16"/>
   <!-- interface-naming-policy toplevel-contextual -->
@@ -10,18 +10,16 @@
     <child internal-child="vbox">
       <object class="GtkVBox" id="dialog-vbox2">
         <property name="visible">True</property>
-        <property name="orientation">vertical</property>
         <property name="spacing">2</property>
         <child>
           <object class="GtkVBox" id="vbox1">
             <property name="visible">True</property>
-            <property name="orientation">vertical</property>
             <property name="spacing">6</property>
             <child>
               <object class="GtkEntry" id="fontsearch">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
-                <property name="invisible_char">&#x25CF;</property>
+                <property name="invisible_char">●</property>
                 <property name="secondary_icon_stock">gtk-find</property>
                 <property name="secondary_icon_activatable">True</property>
                 <property name="secondary_icon_sensitive">True</property>
@@ -60,13 +58,12 @@
                 <child>
                   <object class="GtkVBox" id="vbox2">
                     <property name="visible">True</property>
-                    <property name="orientation">vertical</property>
                     <child>
                       <object class="GtkEntry" id="preview">
                         <property name="height_request">70</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
-                        <property name="invisible_char">&#x25CF;</property>
+                        <property name="invisible_char">●</property>
                         <property name="text" translatable="yes">Type your sample text here</property>
                         <property name="caps_lock_warning">False</property>
                       </object>
@@ -78,23 +75,6 @@
                       <object class="GtkHBox" id="hbox1">
                         <property name="visible">True</property>
                         <child>
-                          <object class="GtkComboBox" id="fontface">
-                            <property name="width_request">150</property>
-                            <property name="visible">True</property>
-                            <property name="button_sensitivity">on</property>
-                            <child>
-                              <object class="GtkCellRendererText" id="cellrenderertext1"/>
-                              <attributes>
-                                <attribute name="markup">0</attribute>
-                              </attributes>
-                            </child>
-                          </object>
-                          <packing>
-                            <property name="expand">False</property>
-                            <property name="position">0</property>
-                          </packing>
-                        </child>
-                        <child>
                           <object class="GtkHScale" id="sizescale">
                             <property name="width_request">150</property>
                             <property name="visible">True</property>
@@ -102,21 +82,21 @@
                             <property name="draw_value">False</property>
                           </object>
                           <packing>
-                            <property name="position">1</property>
+                            <property name="position">0</property>
                           </packing>
                         </child>
                         <child>
                           <object class="GtkSpinButton" id="fontsize">
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
-                            <property name="invisible_char">&#x25CF;</property>
+                            <property name="invisible_char">•</property>
                             <property name="digits">1</property>
                             <property name="numeric">True</property>
                             <property name="wrap">True</property>
                           </object>
                           <packing>
                             <property name="expand">False</property>
-                            <property name="position">2</property>
+                            <property name="position">1</property>
                           </packing>
                         </child>
                       </object>
